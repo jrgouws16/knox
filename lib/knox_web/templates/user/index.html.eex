@@ -1,0 +1,25 @@
+<h2>User list</h2>
+<ul>
+	<%= for user <- @users do %>
+		<li>
+			<span>
+				<%= user.name %>
+			</span>
+			<span>
+				<%= user.surname %>
+			</span>
+			<span>
+				<%= user.email %>
+			</span>
+			<span>
+				<%= link "Update", to: Routes.user_path(@conn, :edit, user) %>
+			</span>
+			<span>
+				<%= link "Delete", to: Routes.user_path(@conn, :delete, user), method: :delete %>
+			</span>
+		</li>
+	<% end %>
+	<li>
+		<%= link "Create User", to: Routes.user_path(@conn, :new) %>
+	</li>
+</ul>

@@ -1,0 +1,11 @@
+<%= form_for @changeset, Routes.user_path(@conn, :update, @user), fn f -> %>
+	<div class="form-group">
+		<%= text_input f, :name, placeholder: "Name" %>
+		<%= error_tag f, :name %>
+		<%= text_input f, :surname, placeholder: "Surname" %>
+		<%= error_tag f, :surname %>
+		<%= text_input f, :email, placeholder: "Email" %>
+		<%= error_tag f, :email %>
+	</div>
+	<%= submit "Update User", class: "btn btn-primary" %>
+<% end %>

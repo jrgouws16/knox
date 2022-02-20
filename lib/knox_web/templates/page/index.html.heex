@@ -16,6 +16,12 @@
       <li>
         <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">v1.6 Changelog</a>
       </li>
+      <li>
+        <%= link "Create User", to: Routes.user_path(@conn, :new) %>
+      </li>
+      <li>
+        <%= link "List Users", to: Routes.user_path(@conn, :index) %>
+      </li>
     </ul>
   </article>
   <article class="column">
