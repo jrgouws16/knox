@@ -1,4 +1,9 @@
 defmodule KnoxWeb.Telemetry do
+  @moduledoc """
+  A boilerplate module for some runtime insights into Phoenix.
+  Provides a LiveView where you can view the stats.
+  """
+
   use Supervisor
   import Telemetry.Metrics
 

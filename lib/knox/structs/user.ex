@@ -1,4 +1,9 @@
 defmodule Knox.User do
+  @moduledoc """
+    Just a general user table that will facilitate everything to
+    with someone logging into our application.
+  """
+
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -6,9 +11,9 @@ defmodule Knox.User do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "users" do
-    field :name, :string
-    field :surname, :string
-    field :email, :string
+    field(:name, :string)
+    field(:surname, :string)
+    field(:email, :string)
 
     timestamps()
   end
