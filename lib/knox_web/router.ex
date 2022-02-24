@@ -17,7 +17,10 @@ defmodule KnoxWeb.Router do
   scope "/", KnoxWeb do
     pipe_through(:browser)
 
+    live "/example", ExampleLive
+
     get("/", PageController, :index)
+
     resources("/users", UserController)
   end
 

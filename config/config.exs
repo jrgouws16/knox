@@ -48,6 +48,12 @@ config :tailwind, version: "3.0.23", default: [
   cd: Path.expand("../assets", __DIR__)
   ]
 
+
+
+config :surface, :components, [
+  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
+]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

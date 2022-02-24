@@ -60,7 +60,8 @@ config :knox, KnoxWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/knox_web/(live|views)/.*(ex)$",
-      ~r"lib/knox_web/templates/.*(eex)$"
+      ~r"lib/knox_web/templates/.*(eex)$",
+      ~r"lib/my_app_web/live/.*(sface)$"
     ]
   ]
 
