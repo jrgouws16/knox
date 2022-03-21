@@ -82,3 +82,8 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Runs checks before committing a change
+config :pre_commit,
+  commands: ["test", "format --check-formatted", "credo"],
+  verbose: true

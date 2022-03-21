@@ -67,7 +67,9 @@ defmodule Knox.MixProject do
       {:surface_bulma, "~> 0.4.0"},
       {:bulma, "0.9.3"},
       # Required for bulma custom css variable definitions
-      {:dart_sass, "~> 0.1", runtime: Mix.env() == :dev}
+      {:dart_sass, "~> 0.1", runtime: Mix.env() == :dev},
+      # Do stuff like linting before you commit
+      {:pre_commit, "~> 0.3.4", only: :dev}
     ]
   end
 
