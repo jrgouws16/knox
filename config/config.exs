@@ -37,21 +37,36 @@ config :esbuild,
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ],
+  catalogue: [
+    args:
+      ~w(../deps/surface_catalogue/assets/js/app.js --bundle --target=es2016 --minify --outdir=../priv/static/assets/catalogue),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-config :tailwind, version: "3.0.23", default: [
-  args: ~w(
+config :tailwind,
+  version: "3.0.23",
+  default: [
+    args: ~w(
     --config=tailwind.config.js
     --input=css/app.css
     --output=../priv/static/assets/app.css
   ),
-  cd: Path.expand("../assets", __DIR__)
+    cd: Path.expand("../assets", __DIR__)
   ]
 
-
+# Required for customization of Bulma variables
+config :dart_sass,
+  version: "1.36.0",
+  default: [
+    args: ~w(--load-path=../deps/bulma css:../priv/static/assets),
+    cd: Path.expand("../assets", __DIR__)
+  ]
 
 config :surface, :components, [
-  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
+  {Surface.Components.Form.ErrorTag,
+   default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
 ]
 
 # Configures Elixir's Logger

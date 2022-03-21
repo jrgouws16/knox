@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "bulma-overrides";
+
+@import "bulma";
+
 /* Alerts and form errors used by phx.new */
 .alert {
   padding: 15px;

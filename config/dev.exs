@@ -24,9 +24,16 @@ config :knox, KnoxWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "8/bcyC72Zy8IChBfZEuUfnFmsd99Bz9K1ucVFeARe0dbiTktgRFirOgsoGM5xX4R",
   watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    # app.js
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    # catalogue.js
+    esbuild: {Esbuild, :install_and_run, [:catalogue, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
   ]
 
 # ## SSL Support
@@ -61,7 +68,8 @@ config :knox, KnoxWeb.Endpoint,
       ~r"priv/gettext/.*(po)$",
       ~r"lib/knox_web/(live|views)/.*(ex)$",
       ~r"lib/knox_web/templates/.*(eex)$",
-      ~r"lib/my_app_web/live/.*(sface)$"
+      ~r"lib/my_app_web/live/.*(sface)$",
+      ~r"priv/catalogue/.*(ex)$"
     ]
   ]
 

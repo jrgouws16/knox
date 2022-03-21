@@ -1,6 +1,8 @@
 defmodule KnoxWeb.Router do
   use KnoxWeb, :router
 
+  import Surface.Catalogue.Router
+
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
@@ -17,11 +19,12 @@ defmodule KnoxWeb.Router do
   scope "/", KnoxWeb do
     pipe_through(:browser)
 
-    live "/example", ExampleLive
+    surface_catalogue("/catalogue")
 
-    get("/", PageController, :index)
-
-    resources("/users", UserController)
+    scope "logged_in" do
+      live("/", ExampleLive, :index)
+      resources("/users", UserController)
+    end
   end
 
   # Other scopes may use custom stacks.
