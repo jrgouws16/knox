@@ -1,3 +1,4 @@
+<%# Used by both the live views and the regular views (controller views) %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,6 +26,7 @@
         </a>
       </section>
     </header>
+    <%# app.html.heex and live.html.heex will be injected in @inner_content %>
     <%= @inner_content %>
   </body>
 </html>

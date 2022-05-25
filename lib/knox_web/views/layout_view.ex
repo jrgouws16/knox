@@ -1,4 +1,6 @@
 defmodule KnoxWeb.LayoutView do
+  # https://hexdocs.pm/phoenix_live_view/live-layouts.html
+  # Defaults to use app.html.heex template
   use KnoxWeb, :view
 
   # Phoenix LiveDashboard is available only in development by default,

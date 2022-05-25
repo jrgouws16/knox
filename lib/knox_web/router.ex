@@ -5,6 +5,7 @@ defmodule KnoxWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
+    # root.html.heex template with layout_view.ex view
     plug :put_root_layout, {KnoxWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers

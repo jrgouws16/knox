@@ -1,5 +1,7 @@
+<%# Default app layout and is only used by regular views (controllers) %>
 <main class="container">
   <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
   <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <%# Controller content is injected in @inner_content %>
   <%= @inner_content %>
 </main>
