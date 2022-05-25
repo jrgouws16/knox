@@ -17,7 +17,7 @@ config :knox, Knox.Repo,
 # you can enable the server option below.
 config :knox, KnoxWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "9EZLufQGr2Skg86cPU5qF19G6mQWKaf0bwULfY9bHT2/4mH6yNMrRzaIxS+1ZOfb",
+  secret_key_base: "83atAxch1kTNP7lcARpBMsEmTb9WIgGWeyJqtdHFg5kPFYProKFpjAI3A+a9JGcS",
   server: false
 
 # In test we don't send emails.

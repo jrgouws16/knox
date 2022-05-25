@@ -24,19 +24,8 @@ defmodule Knox.MixProject do
     ]
   end
 
-  def catalogues do
-    [
-      # Local catalogue
-      "priv/catalogue",
-      # Dependencies catalogues
-      "deps/surface/priv/catalogue",
-      "deps/surface_bulma/priv/catalogue"
-    ]
-  end
-
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(:dev), do: ["lib" | catalogues()]
   defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
@@ -60,16 +49,7 @@ defmodule Knox.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:surface, "~> 0.7.1"},
-      {:surface_catalogue, "~> 0.4.0"},
-      {:surface_bulma, "~> 0.4.0"},
-      {:bulma, "0.9.3"},
-      # Required for bulma custom css variable definitions
-      {:dart_sass, "~> 0.1", runtime: Mix.env() == :dev},
-      # Do stuff like linting before you commit
-      {:pre_commit, "~> 0.3.4", only: :dev}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -85,12 +65,7 @@ defmodule Knox.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": [
-        "sass default --no-source-map --style=compressed",
-        "tailwind default --minify",
-        "esbuild default --minify",
-        "phx.digest"
-      ]
+      "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end

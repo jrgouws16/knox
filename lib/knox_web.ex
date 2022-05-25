@@ -42,9 +42,9 @@ defmodule KnoxWeb do
     end
   end
 
-  def surface_view do
+  def live_view do
     quote do
-      use Surface.LiveView,
+      use Phoenix.LiveView,
         layout: {KnoxWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
